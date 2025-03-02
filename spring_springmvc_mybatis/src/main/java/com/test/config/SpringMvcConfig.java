@@ -19,6 +19,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     private MyInterceptor myInterceptor;
 
     /*拦截器*/
+    @Override
     public void addInterceptors(InterceptorRegistry registry) {
         /*对books路径下的任意路径的访问都会拦截*/
         registry.addInterceptor(myInterceptor).addPathPatterns("/users/**");
@@ -27,6 +28,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     }
 
     /*过滤器, 通常用于处理静态资源，告诉Spring MVC如何处理对静态资源的访问(而不是走控制器那套)*/
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         /*注册一个资源处理器，它会处理所有以 "/pages/" 开头的请求。 可以注册多个*/
 
