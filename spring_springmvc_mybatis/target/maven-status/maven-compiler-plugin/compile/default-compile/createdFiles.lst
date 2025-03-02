@@ -1,0 +1,15 @@
+com\test\controller\common\ApiResult.class
+com\test\controller\ExceptionAdvice.class
+com\test\config\SpringMvcConfig.class
+com\test\config\MyBatisConfig.class
+com\test\controller\common\AppException.class
+com\test\service\UserService.class
+com\test\service\impl\UserServiceImpl.class
+com\test\config\ServletConfig.class
+com\test\config\JdbcConfig.class
+com\test\config\SpringConfig.class
+com\test\mapper\UserMapper.class
+com\test\controller\common\ResultEnum.class
+com\test\controller\MyInterceptor.class
+com\test\controller\UserController.class
+com\test\pojo\User.class
