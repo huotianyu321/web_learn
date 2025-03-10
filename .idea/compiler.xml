@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring_springmvc_mybatis" />
+        <module name="mybatis_test" />
+        <module name="jedis-connect" />
       </profile>
     </annotationProcessing>
   </component>

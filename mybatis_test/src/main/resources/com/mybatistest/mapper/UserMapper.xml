@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 这是sql语句的映射文件-->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybaitistest.mapper.UserMapper">
+    <!--练习1-->
+    <select id="selectAll" resultType="com.mybatistest.pojo.User">
+        select * from user;
+    </select>
+
+    <!--练习2-->
+    <!--*参数占位符:-->
+    <!--1.#{}:会将其替换为?，为了防止SQL注入 -->
+    <!--2.${}:拼sql。会存在SQL注入问题-->
+    <!--参数类型parameterType一般可以省略-->
+    <select id="selectOne" resultType="com.mybatistest.pojo.User" parameterType="int">
+        select * from user where id = #{id};
+    </select>
+
+    <!--练习3， 传入多个参数的三种方式-->
+    <!-- XML中CD区域包裹需要转义的特殊字符-->
+    <select id="selectByCondition" resultType="com.mybatistest.pojo.User">
+        select * from user
+        where user_name = #{userName}
+        and math_score > #{mathScore}
+        and english_score <![CDATA[<]]> #{englishScore};
+    </select>
+
+    <!--练习4 插入语句-->
+    <!--设置返回主键，并指定主键字段为id-->
+    <insert id="insertStu" useGeneratedKeys="true" keyProperty="id">
+        insert into stu
+        (name, age, sex, address, math_score, english_score, hire_date)
+        values
+        (#{name}, #{age}, #{sex}, #{address}, #{mathScore}, #{englishScore}, #{hireDate});
+    </insert>
+
+
+    <!--练习5 修改语句-->
+    <update id="updateById">
+        update stu
+        set
+        math_score = #{mathScore},
+        english_score = #{englishScore}
+        where id = #{id};
+    </update>
+
+    <!--    <select id="selectPart" resultType="com.hty.pojo.Stu">-->
+    <!--        select * from stu where math > #{math} and english > #{english}-->
+    <!--    </select>-->
+
+    <!--    <update id="updateById">-->
+    <!--        UPDATE stu-->
+    <!--        SET math = #{math}, english = #{english}-->
+    <!--        WHERE id = #{id}-->
+    <!--    </update>-->
+</mapper>
